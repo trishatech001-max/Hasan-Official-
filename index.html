@@ -158,15 +158,6 @@
 
 <div id="posts"></div>
 
-<!-- Admin Login & Post Page -->
-<div id="admin-page">
-    <h2>Admin Panel</h2>
-    <input type="text" id="postTitle" placeholder="Post Title">
-    <textarea id="postDesc" placeholder="Post Description"></textarea>
-    <input type="text" id="postImage" placeholder="Image URL (optional)">
-    <button onclick="addPost()">Add Post</button>
-    <button onclick="toggleAdmin()">Close Admin Panel</button>
-</div>
 
 <footer>
     <p>Contact: 0123456789 | Address: Dhaka, Bangladesh</p>
@@ -185,7 +176,46 @@
     }
     updateDate();
 
-    // Page navigation
+    // Page navigation<!-- Admin Login & Post Page -->
+<div id="admin-page" style="display:none; flex-direction:column; align-items:center; margin:20px;">
+    <h2>Admin Panel</h2>
+    <div id="login-section">
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+    <div id="post-section" style="display:none; width:100%;">
+        <input type="text" id="postTitle" placeholder="Post Title">
+        <textarea id="postDesc" placeholder="Post Description"></textarea>
+        <input type="text" id="postImage" placeholder="Image URL (optional)">
+        <button onclick="addPost()">Add Post</button>
+        <button onclick="toggleAdmin()">Close Admin Panel</button>
+    </div>
+</div>
+
+<script>
+    const adminPass = "Hasan@2025";
+
+    function toggleAdmin() {
+        const adminPage = document.getElementById('admin-page');
+        adminPage.style.display = adminPage.style.display === 'flex' ? 'none' : 'flex';
+        // Reset login
+        document.getElementById('login-section').style.display = 'block';
+        document.getElementById('post-section').style.display = 'none';
+        document.getElementById('adminPassword').value = '';
+    }
+
+    function checkPassword() {
+        const input = document.getElementById('adminPassword').value;
+        if(input === adminPass) {
+            // Password correct, show post section
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('post-section').style.display = 'flex';
+        } else {
+            alert("Invalid Password!");
+            document.getElementById('adminPassword').value = '';
+        }
+    }
+</script>
     function goPage(page) { alert(page + " page খোলা হবে (এখানে নতুন পেজ লিঙ্ক দাও)।"); }
     function goCategory(cat) { alert(cat + " category page খোলা হবে।"); }
 
