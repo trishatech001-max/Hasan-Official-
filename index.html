@@ -1,136 +1,258 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hasan Official</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }/* Header */
-header {
-  background: green;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan Official</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
 
-.menu a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
+        /* হেডার */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 { margin: 0; }
+        nav button {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            color: #4CAF50;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        nav button:hover {
+            background-color: #45a049;
+            color: white;
+        }
 
-.date-bar {
-  background: #ddd;
-  padding: 10px;
-  text-align: center;
-  font-size: 18px;
-}
+        /* তারিখ লাইন */
+        #date-line {
+            background-color: #e6e6e6;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
 
-.search-box {
-  padding: 10px;
-  text-align: center;
-  background: #fff;
-}
+        /* সার্চ */
+        #search-section {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        #search-section input {
+            padding: 8px;
+            width: 60%;
+            border-radius: 5px 0 0 5px;
+            border: 1px solid #ccc;
+        }
+        #search-section button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        #search-section button:hover { background-color: #45a049; }
 
-.search-box input {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
-}
+        /* ক্যাটাগরি */
+        #categories {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .category {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .category:hover { background-color: #45a049; }
 
-.category-section {
-  padding: 15px;
-  background: #fff;
-  margin-top: 10px;
-}
+        /* পোস্ট */
+        #posts { display: flex; flex-direction: column; align-items: center; }
+        .post {
+            background-color: white;
+            width: 80%;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+        .post img { max-width: 100%; border-radius: 5px; margin-top: 10px; }
+        .post-actions { margin-top: 10px; }
+        .post-actions button { margin-right: 10px; padding: 5px 10px; cursor: pointer; }
+        .comments { margin-top: 10px; border-top: 1px solid #ccc; padding-top: 10px; }
+        .comments p { margin: 5px 0; }
 
-.category-section button {
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background: green;
-  color: white;
-  border-radius: 5px;
-}
+        /* Admin Login Page */
+        #admin-page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #admin-page input, #admin-page textarea {
+            margin: 5px 0;
+            padding: 8px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #admin-page button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.posts {
-  margin: 15px;
-  background: white;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.footer {
-  text-align: center;
-  background: #333;
-  color: #fff;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-  </style>
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>  <!-- Header -->  <header>
-    <h2>Hasan Official</h2>
-    <div class="menu">
-      <a href="index.html">হোম</a>
-      <a href="contact.html">কনট্যাক্ট</a>
-      <a href="posts.html">পোস্ট</a>
-      <a href="admin.html">এডমিন লগইন</a>
-    </div>
-  </header>  <!-- Date Section -->  <div class="date-bar">
-    <span id="dateLine">তারিখ লোড হচ্ছে...</span>
-  </div>  <!-- Search Bar -->  <div class="search-box">
-    <form action="https://www.google.com/search" method="GET" target="_blank">
-      <input type="text" name="q" placeholder="গুগলে সার্চ করুন..." />
-    </form>
-  </div>  <!-- Categories -->  <div class="category-section">
-    <h3>ক্যাটাগরি</h3>
-    <button onclick="location.href='cat-tech.html'">টেক</button>
-    <button onclick="location.href='cat-news.html'">নিউজ</button>
-    <button onclick="location.href='cat-education.html'">এডুকেশন</button>
-  </div>  <!-- Posts Section -->  <div class="posts">
-    <h3>সর্বশেষ পোস্ট</h3>
-    <p>এখানে পোস্ট প্রদর্শিত হবে (অ্যাডমিন প্যানেল থেকে যুক্ত হবে)।</p>
-  </div>  <!-- Footer -->  <div class="footer">
-    <p>Contact: 01234567890</p>
-    <p>Address: Dhaka, Bangladesh</p>
-  </div>  <script>
-    // Auto Date Update (Bangla + English + Arabic)
-    const monthsBn = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];    
+<body>
 
+<header>
+    <h1>Hasan Official</h1>
+    <nav>
+        <button onclick="goPage('home')">Home</button>
+        <button onclick="goPage('contact')">Contact</button>
+        <button onclick="goPage('posts')">Posts</button>
+        <button onclick="toggleAdmin()">Admin Login</button>
+    </nav>
+</header>
+
+<div id="date-line"></div>
+
+<div id="search-section">
+    <input type="text" id="searchInput" placeholder="যা সার্চ করতে চান লিখুন...">
+    <button onclick="googleSearch()">Search</button>
+</div>
+
+<div id="categories">
+    <div class="category" onclick="goCategory('Technology')">Technology</div>
+    <div class="category" onclick="goCategory('Sports')">Sports</div>
+    <div class="category" onclick="goCategory('News')">News</div>
+</div>
+
+<div id="posts"></div>
+
+<!-- Admin Login & Post Page -->
+<div id="admin-page">
+    <h2>Admin Panel</h2>
+    <input type="text" id="postTitle" placeholder="Post Title">
+    <textarea id="postDesc" placeholder="Post Description"></textarea>
+    <input type="text" id="postImage" placeholder="Image URL (optional)">
+    <button onclick="addPost()">Add Post</button>
+    <button onclick="toggleAdmin()">Close Admin Panel</button>
+</div>
+
+<footer>
+    <p>Contact: 0123456789 | Address: Dhaka, Bangladesh</p>
+</footer>
+
+<script>
+    // তারিখ
+    const dateLine = document.getElementById('date-line');
     function updateDate() {
-      const d = new Date();
-      const day = d.getDate();
-      const month = monthsBn[d.getMonth()];
-      const year = d.getFullYear();
+        const now = new Date();
+        const options = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
+        const english = now.toLocaleDateString('en-US', options);
+        const bangla = now.toLocaleDateString('bn-BD', options);
+        const arabic = now.toLocaleDateString('ar-EG', options);
+        dateLine.innerText = `বাংলা: ${bangla} | English: ${english} | عربي: ${arabic}`;
+    }
+    updateDate();
 
-      document.getElementById("dateLine").innerText =
-        `বাংলা: ${day} ${month}, ${year} | English: ${d.toDateString()} | Arabic: ${d.toLocaleDateString('ar-EG')}`;
+    // Page navigation
+    function goPage(page) { alert(page + " page খোলা হবে (এখানে নতুন পেজ লিঙ্ক দাও)।"); }
+    function goCategory(cat) { alert(cat + " category page খোলা হবে।"); }
+
+    // Google Search
+    function googleSearch() {
+        const query = document.getElementById('searchInput').value;
+        if(query) window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
     }
 
-    updateDate();
-    <script>
-function loadPosts() {
-  let posts = JSON.parse(localStorage.getItem('posts') || '[]');
-  const container = document.getElementById('postsContainer');
+    // Admin toggle
+    function toggleAdmin() {
+        const adminPage = document.getElementById('admin-page');
+        adminPage.style.display = adminPage.style.display === 'flex' ? 'none' : 'flex';
+    }
 
-  posts.forEach(post => {
-    const div = document.createElement('div');
-    div.classList.add('post-box');
-    div.innerHTML = `
-      <h3>${post.title}</h3>
-      <p>${post.desc}</p>
-      ${post.img ? `<img src="${post.img}" alt="Post Image">` : ''}
-    `;
-    container.appendChild(div);
-  });
-}
+    // Posts
+    const postsContainer = document.getElementById('posts');
+    let posts = [];
 
-window.onload = loadPosts;
+    function renderPosts() {
+        postsContainer.innerHTML = '';
+        posts.forEach((p, index) => {
+            const div = document.createElement('div');
+            div.className = 'post';
+            div.innerHTML = `
+                <h2>${p.title}</h2>
+                <p>${p.desc}</p>
+                ${p.image ? `<img src="${p.image}" alt="">` : ''}
+                <div class="post-actions">
+                    <button onclick="likePost(${index})">Like (${p.likes})</button>
+                    <button onclick="showCommentBox(${index})">Comment</button>
+                </div>
+                <div class="comments" id="comments-${index}">
+                    ${p.comments.map(c => `<p>${c}</p>`).join('')}
+                </div>
+            `;
+            postsContainer.appendChild(div);
+        });
+    }
+
+    function addPost() {
+        const title = document.getElementById('postTitle').value;
+        const desc = document.getElementById('postDesc').value;
+        const image = document.getElementById('postImage').value;
+        if(title && desc) {
+            posts.unshift({title, desc, image, likes: 0, comments: []});
+            renderPosts();
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postDesc').value = '';
+            document.getElementById('postImage').value = '';
+        } else {
+            alert("Title এবং Description অবশ্যই দিতে হবে।");
+        }
+    }
+
+    function likePost(index) {
+        posts[index].likes += 1;
+        renderPosts();
+    }
+
+    function showCommentBox(index) {
+        const comment = prompt("কমেন্ট লিখুন:");
+        if(comment) {
+            posts[index].comments.push(comment);
+            renderPosts();
+        }
+    }
 </script>
-  </script></body>
+</body>
 </html>
