@@ -5,134 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasan Official</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+        body { margin:0; font-family: Arial, sans-serif; background-color: #f2f2f2; }
 
-        /* হেডার */
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header h1 { margin: 0; }
-        nav button {
-            margin-left: 10px;
-            padding: 8px 15px;
-            border: none;
-            cursor: pointer;
-            background-color: white;
-            color: #4CAF50;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        nav button:hover {
-            background-color: #45a049;
-            color: white;
-        }
+        /* Header */
+        header { background-color:#4CAF50; color:white; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
+        header h1 { margin:0; }
+        nav button { margin-left:10px; padding:8px 15px; border:none; cursor:pointer; background-color:white; color:#4CAF50; font-weight:bold; border-radius:5px; }
+        nav button:hover { background-color:#45a049; color:white; }
 
-        /* তারিখ লাইন */
-        #date-line {
-            background-color: #e6e6e6;
-            padding: 10px;
-            text-align: center;
-            font-size: 16px;
-        }
+        /* Date Line */
+        #date-line { background-color:#e6e6e6; padding:10px; text-align:center; font-size:16px; }
 
-        /* সার্চ */
-        #search-section {
-            display: flex;
-            justify-content: center;
-            margin: 20px;
-        }
-        #search-section input {
-            padding: 8px;
-            width: 60%;
-            border-radius: 5px 0 0 5px;
-            border: 1px solid #ccc;
-        }
-        #search-section button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        #search-section button:hover { background-color: #45a049; }
+        /* Search */
+        #search-section { display:flex; justify-content:center; margin:20px; }
+        #search-section input { padding:8px; width:60%; border-radius:5px 0 0 5px; border:1px solid #ccc; }
+        #search-section button { padding:8px 15px; border:none; border-radius:0 5px 5px 0; background-color:#4CAF50; color:white; cursor:pointer; }
+        #search-section button:hover { background-color:#45a049; }
 
-        /* ক্যাটাগরি */
-        #categories {
-            display: flex;
-            justify-content: center;
-            margin: 20px;
-        }
-        .category {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .category:hover { background-color: #45a049; }
+        /* Categories */
+        #categories { display:flex; justify-content:center; margin:20px; }
+        .category { background-color:#4CAF50; color:white; padding:10px 15px; margin:0 5px; border-radius:5px; cursor:pointer; }
+        .category:hover { background-color:#45a049; }
 
-        /* পোস্ট */
-        #posts { display: flex; flex-direction: column; align-items: center; }
-        .post {
-            background-color: white;
-            width: 80%;
-            margin: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-        }
-        .post img { max-width: 100%; border-radius: 5px; margin-top: 10px; }
-        .post-actions { margin-top: 10px; }
-        .post-actions button { margin-right: 10px; padding: 5px 10px; cursor: pointer; }
-        .comments { margin-top: 10px; border-top: 1px solid #ccc; padding-top: 10px; }
-        .comments p { margin: 5px 0; }
+        /* Posts */
+        #posts { display:flex; flex-direction:column; align-items:center; }
+        .post { background-color:white; width:80%; margin:10px; padding:15px; border-radius:5px; box-shadow:0px 2px 5px rgba(0,0,0,0.1); }
+        .post img { max-width:100%; border-radius:5px; margin-top:10px; }
+        .post-actions { margin-top:10px; }
+        .post-actions button { margin-right:10px; padding:5px 10px; cursor:pointer; }
+        .comments { margin-top:10px; border-top:1px solid #ccc; padding-top:10px; }
+        .comments p { margin:5px 0; }
 
-        /* Admin Login Page */
-        #admin-page {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-        #admin-page input, #admin-page textarea {
-            margin: 5px 0;
-            padding: 8px;
-            width: 80%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        #admin-page button {
-            padding: 8px 15px;
-            margin-top: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        /* Admin Panel */
+        #admin-page { display:none; flex-direction:column; align-items:center; margin:20px; }
+        #admin-page input, #admin-page textarea { margin:5px 0; padding:8px; width:80%; border-radius:5px; border:1px solid #ccc; }
+        #admin-page button { padding:8px 15px; margin-top:10px; background-color:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer; }
 
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
+        footer { background-color:#333; color:white; padding:20px; text-align:center; margin-top:20px; }
     </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <h1>Hasan Official</h1>
     <nav>
@@ -143,28 +57,50 @@
     </nav>
 </header>
 
+<!-- Date Line -->
 <div id="date-line"></div>
 
+<!-- Search -->
 <div id="search-section">
     <input type="text" id="searchInput" placeholder="যা সার্চ করতে চান লিখুন...">
     <button onclick="googleSearch()">Search</button>
 </div>
 
+<!-- Categories -->
 <div id="categories">
     <div class="category" onclick="goCategory('Technology')">Technology</div>
     <div class="category" onclick="goCategory('Sports')">Sports</div>
     <div class="category" onclick="goCategory('News')">News</div>
 </div>
 
+<!-- Posts -->
 <div id="posts"></div>
 
+<!-- Admin Login & Post Panel -->
+<div id="admin-page">
+    <h2>Admin Panel</h2>
+    <!-- Login Section -->
+    <div id="login-section">
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+    <!-- Post Section -->
+    <div id="post-section" style="display:none; width:100%;">
+        <input type="text" id="postTitle" placeholder="Post Title">
+        <textarea id="postDesc" placeholder="Post Description"></textarea>
+        <input type="text" id="postImage" placeholder="Image URL (optional)">
+        <button onclick="addPost()">Add Post</button>
+        <button onclick="toggleAdmin()">Close Admin Panel</button>
+    </div>
+</div>
 
+<!-- Footer -->
 <footer>
     <p>Contact: 0123456789 | Address: Dhaka, Bangladesh</p>
 </footer>
 
 <script>
-    // তারিখ
+    // Date
     const dateLine = document.getElementById('date-line');
     function updateDate() {
         const now = new Date();
@@ -176,47 +112,8 @@
     }
     updateDate();
 
-    // Page navigation<!-- Admin Login & Post Page -->
-<div id="admin-page" style="display:none; flex-direction:column; align-items:center; margin:20px;">
-    <h2>Admin Panel</h2>
-    <div id="login-section">
-        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
-        <button onclick="checkPassword()">Login</button>
-    </div>
-    <div id="post-section" style="display:none; width:100%;">
-        <input type="text" id="postTitle" placeholder="Post Title">
-        <textarea id="postDesc" placeholder="Post Description"></textarea>
-        <input type="text" id="postImage" placeholder="Image URL (optional)">
-        <button onclick="addPost()">Add Post</button>
-        <button onclick="toggleAdmin()">Close Admin Panel</button>
-    </div>
-</div>
-
-<script>
-    const adminPass = "Hasan@2025";
-
-    function toggleAdmin() {
-        const adminPage = document.getElementById('admin-page');
-        adminPage.style.display = adminPage.style.display === 'flex' ? 'none' : 'flex';
-        // Reset login
-        document.getElementById('login-section').style.display = 'block';
-        document.getElementById('post-section').style.display = 'none';
-        document.getElementById('adminPassword').value = '';
-    }
-
-    function checkPassword() {
-        const input = document.getElementById('adminPassword').value;
-        if(input === adminPass) {
-            // Password correct, show post section
-            document.getElementById('login-section').style.display = 'none';
-            document.getElementById('post-section').style.display = 'flex';
-        } else {
-            alert("Invalid Password!");
-            document.getElementById('adminPassword').value = '';
-        }
-    }
-</script>
-    function goPage(page) { alert(page + " page খোলা হবে (এখানে নতুন পেজ লিঙ্ক দাও)।"); }
+    // Page navigation
+    function goPage(page) { alert(page + " page খোলা হবে (পরবর্তীতে তুমি আলাদা পেজ যোগ করতে পারবে)।"); }
     function goCategory(cat) { alert(cat + " category page খোলা হবে।"); }
 
     // Google Search
@@ -225,10 +122,26 @@
         if(query) window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
     }
 
-    // Admin toggle
+    // Admin Login & Password
+    const adminPass = "Hasan@2025";
+
     function toggleAdmin() {
         const adminPage = document.getElementById('admin-page');
         adminPage.style.display = adminPage.style.display === 'flex' ? 'none' : 'flex';
+        document.getElementById('login-section').style.display = 'block';
+        document.getElementById('post-section').style.display = 'none';
+        document.getElementById('adminPassword').value = '';
+    }
+
+    function checkPassword() {
+        const input = document.getElementById('adminPassword').value;
+        if(input === adminPass) {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('post-section').style.display = 'flex';
+        } else {
+            alert("Invalid Password!");
+            document.getElementById('adminPassword').value = '';
+        }
     }
 
     // Posts
@@ -283,6 +196,7 @@
             renderPosts();
         }
     }
+
 </script>
 </body>
 </html>
