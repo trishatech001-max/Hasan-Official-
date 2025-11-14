@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কনট্যাক্ট</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background: #f2f2f2; }
+    header { background: green; color:white; text-align:center; padding:15px; font-size:24px; font-weight:bold; }
+    .contact-box { width:90%; background:white; padding:20px; margin:20px auto; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.2); }
+    .contact-box p { font-size:18px; margin:10px 0; }
+    .contact-box label { font-weight:bold; }
+  </style>
+</head>
+<body><header>কনট্যাক্ট</header><div class="contact-box">
+  <p><label>ইমেইল:</label> hasan@example.com</p>
+  <p><label>ফোন:</label> 01234567890</p>
+  <p><label>ঠিকানা:</label> ঢাকা, বাংলাদেশ</p>  <h3>মেসেজ পাঠান</h3>
+  <form action="#" method="POST">
+    <input type="text" name="name" placeholder="আপনার নাম" required style="width:100%; padding:10px; margin:10px 0;" />
+    <input type="email" name="email" placeholder="আপনার ইমেইল" required style="width:100%; padding:10px; margin:10px 0;" />
+    <textarea name="message" rows="6" placeholder="আপনার মেসেজ" required style="width:100%; padding:10px; margin:10px 0;"></textarea>
+    <button type="submit" style="width:100%; padding:12px; background:green; color:white; border:none; border-radius:5px;">পাঠান</button>
+  </form>
+</div></body>
+</html>
