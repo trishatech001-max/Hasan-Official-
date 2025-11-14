@@ -149,25 +149,25 @@
     let posts = [];
 
     function renderPosts() {
-        postsContainer.innerHTML = '';
-        posts.forEach((p, index) => {
-            const div = document.createElement('div');
-            div.className = 'post';
-            div.innerHTML = `
-                <h2>${p.title}</h2>
-                <p>${p.desc}</p>
-                ${p.image ? `<img src="${p.image}" alt="">` : ''}
-                <div class="post-actions">
-                    <button onclick="likePost(${index})">Like (${p.likes})</button>
-                    <button onclick="showCommentBox(${index})">Comment</button>
-                </div>
-                <div class="comments" id="comments-${index}">
-                    ${p.comments.map(c => `<p>${c}</p>`).join('')}
-                </div>
-            `;
-            postsContainer.appendChild(div);
-        });
-    }
+    postsContainer.innerHTML = '';
+    posts.forEach((p, index) => {
+        const div = document.createElement('div');
+        div.className = 'post';
+        div.innerHTML = `
+            <h2><a href="post-details.html?title=${encodeURIComponent(p.title)}&desc=${encodeURIComponent(p.desc)}&image=${encodeURIComponent(p.image)}" target="_blank">${p.title}</a></h2>
+            <p>${p.desc}</p>
+            ${p.image ? `<img src="${p.image}" alt="">` : ''}
+            <div class="post-actions">
+                <button onclick="likePost(${index})">Like (${p.likes})</button>
+                <button onclick="showCommentBox(${index})">Comment</button>
+            </div>
+            <div class="comments" id="comments-${index}">
+                ${p.comments.map(c => `<p>${c}</p>`).join('')}
+            </div>
+        `;
+        postsContainer.appendChild(div);
+    });
+            }
 
     function addPost() {
         const title = document.getElementById('postTitle').value;
