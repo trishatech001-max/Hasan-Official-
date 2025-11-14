@@ -4,60 +4,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>এডমিন প্যানেল</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f2f2f2; }header {
-  background: green;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.form-box {
-  width: 90%;
-  background: white;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: green;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
+    body { margin: 0; font-family: Arial, sans-serif; background: #f2f2f2; }
+    header { background: green; color: white; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; }
+    .form-box { width: 90%; background: white; padding: 20px; margin: 20px auto; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+    input, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
+    button { width: 100%; padding: 12px; background: green; color: white; border: none; border-radius: 5px; font-size: 18px; }
   </style>
 </head>
-<body>
-<script>
-  const pass = prompt('এডমিন পাসওয়ার্ড দিন');
-  if (pass !== 'Hasan@2025') {
-    alert('ভুল পাসওয়ার্ড! প্রবেশ করা যাবে না।');
-    window.location.href = 'index.html';
-  }
-</script><header>এডমিন প্যানেল</header><div class="form-box">
-  <h3>নতুন পোস্ট যুক্ত করুন</h3><label>পোস্ট শিরোনাম</label> <input type="text" placeholder="পোস্টের শিরোনাম লিখুন" />
+<body><header>এডমিন প্যানেল</header><div class="form-box">
+  <h3>নতুন পোস্ট যুক্ত করুন</h3>
+  <label>পোস্ট শিরোনাম</label>
+  <input type="text" id="postTitle" placeholder="পোস্টের শিরোনাম লিখুন" /><label>পোস্ট বিবরণ</label>
 
-<label>পোস্ট বিবরণ</label>
+  <textarea id="postDesc" rows="6" placeholder="পোস্টের বিস্তারিত লিখুন..."></textarea><label>ফটো URL (ঐচ্ছিক)</label> <input type="text" id="postImg" placeholder="ছবির URL দিন" />
 
-  <textarea rows="6" placeholder="পোস্টের বিস্তারিত লিখুন..."></textarea><label>ফটো (ঐচ্ছিক)</label> <input type="file" />
+<button onclick="addPost()">পোস্ট প্রকাশ করুন</button>
 
-<button>পোস্ট প্রকাশ করুন</button>
+</div><script>
+const pass = prompt('এডমিন পাসওয়ার্ড দিন');
+if (pass !== 'Hasan@2025') {
+  alert('ভুল পাসওয়ার্ড! প্রবেশ করা যাবে না।');
+  window.location.href = 'index.html';
+}
 
-</div><p style="text-align:center; padding-bottom:20px;">এডমিন এখান থেকে সরাসরি পোস্ট করবে এবং পোস্টগুলো হোমপেজে দেখাবে।</p></body>
+function addPost() {
+  const title = document.getElementById('postTitle').value;
+  const desc = document.getElementById('postDesc').value;
+  const img = document.getElementById('postImg').value;
+
+  if(!title || !desc) { alert('শিরোনাম এবং বিবরণ অবশ্যই দিতে হবে'); return; }
+
+  let posts = JSON.parse(localStorage.getItem('posts') || '[]');
+  posts.push({title, desc, img});
+  localStorage.setItem('posts', JSON.stringify(posts));
+
+  alert('পোস্ট সফলভাবে যুক্ত হয়েছে!');
+
+  // ফিল্ড ক্লিয়ার করা
+  document.getElementById('postTitle').value='';
+  document.getElementById('postDesc').value='';
+  document.getElementById('postImg').value='';
+}
+</script></body>
 </html>
